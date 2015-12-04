@@ -16,6 +16,10 @@
 .strong-pm
 coverage
 node_modules
-client/bower_components
+bower_components
 npm-debug.log
 bower.json
+
+# ignore files javascript
+client/bundle.min.js
+client/bundle.lib.min.js
