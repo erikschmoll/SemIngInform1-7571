@@ -7,7 +7,7 @@ var gulp = require("gulp"),
 var pathScriptslib = ['./bower_components/jquery/dist/jquery.js',
 					  './bower_components/angular/angular.js'
 						],
-    pathScripts    = ['./client/dest/*.js']
+    pathScripts    = ['./dest/*.js']
     pathtypeScript = ['./client/app/**/*.ts'];
 
 /*task*/
