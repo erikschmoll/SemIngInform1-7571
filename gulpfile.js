@@ -4,13 +4,21 @@ var gulp = require("gulp"),
 	uglify = require("gulp-uglify"),
 	typescript = require("gulp-tsc");
 
-var pathScriptslib = ['./bower_components/jquery/dist/jquery.js',
-					  './bower_components/angular/angular.js'
+var pathScriptslib = ['./bower_components/jquery/dist/jquery.min.js',
+					  './bower_components/angular/angular.min.js',
+					  './bower_componets/Materialize/dist/js/Materialize.min.js'
 						],
+	pathStylelib =['./bower_componets/Materialize/dist/css/Materialize.min.css'],
     pathScripts    = ['./dest/*.js']
     pathtypeScript = ['./client/app/**/*.ts'];
 
 /*task*/
+gulp.task('uglify-lib-css', function(){
+	gulp.src(pathStylelib)
+	.pipe(concat('style.css'))
+	.pipe(uglify())
+	.pipe(gulp.dest('./client/'))
+});
 gulp.task('uglify-lib', function(){
 	gulp.src(pathScriptslib)
 	.pipe(concat('bundle.lib.min.js'))
