@@ -24,3 +24,6 @@ npm-debug.log
 # ignore files javascript
 client/bundle.min.js
 client/bundle.lib.min.js
+client/fonts/*
+client/js/*
+client/css/*

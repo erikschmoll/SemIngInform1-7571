@@ -2,41 +2,70 @@
 var gulp = require("gulp"),
 	concat = require("gulp-concat"),
 	uglify = require("gulp-uglify"),
-	typescript = require("gulp-tsc");
+	typescript = require("gulp-tsc"),
+	clean = require('gulp-clean'),
+	browserify = require('browserify');
+
 
 var pathScriptslib = ['./bower_components/jquery/dist/jquery.min.js',
 					  './bower_components/angular/angular.min.js',
-					  './bower_componets/Materialize/dist/js/Materialize.min.js'
+					  './bower_components/bootstrap/dist/js/bootstrap.min.js',
+					  './bower_components/bootstrap-material-design/dist/js/material.min.js'
+					 // './bower_components/Materialize/dist/js/materialize.min.js'
 						],
-	pathStylelib =['./bower_componets/Materialize/dist/css/Materialize.min.css'],
-    pathScripts    = ['./dest/*.js']
+	pathClean = ['./client/js/', './client/css/', './client/fonts/', 'dest/'],
+	pathFonts = [
+	//'./bower_components/Materialize/dist/font/**/*'
+	'./bower_components/bootstrap/dist/fonts/*'
+	],
+	pathStylelib =[
+	'./bower_components/bootstrap/dist/css/bootstrap.min.css',
+	'./bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.css'
+
+	//'./bower_components/Materialize/dist/css/materialize.min.css'
+	],
+    pathScripts    = ['./dest/*.js'],
     pathtypeScript = ['./client/app/**/*.ts'];
 
 /*task*/
 gulp.task('uglify-lib-css', function(){
 	gulp.src(pathStylelib)
-	.pipe(concat('style.css'))
-	.pipe(uglify())
-	.pipe(gulp.dest('./client/'))
+	.pipe(concat('style-lib.css'))
+	//.pipe(uglify())
+	.pipe(gulp.dest('./client/css/'))
 });
 gulp.task('uglify-lib', function(){
 	gulp.src(pathScriptslib)
 	.pipe(concat('bundle.lib.min.js'))
 	.pipe(uglify())
-	.pipe(gulp.dest('./client/'))
+	.pipe(gulp.dest('./client/js/'))
 });
+gulp.task('fonts', function(){
+	gulp.src(pathFonts).
+	pipe(gulp.dest('./client/fonts/'))
+});
+
+
 gulp.task('uglify', function(){
 	gulp.src(pathScripts)
 	.pipe(concat('bundle.min.js'))
 	.pipe(uglify())
-	.pipe(gulp.dest('./client/'))
+	.pipe(gulp.dest('./client/js/'))
 });
 
 gulp.task('compile', function(){
-  gulp.src(pathtypeScript)
+  return gulp.src(pathtypeScript)
     .pipe(typescript())
-    .pipe(gulp.dest('dest/'))
+    .pipe(gulp.dest('dest/'));
 });
+
+
+gulp.task('clean', function(){
+	return gulp.src(pathClean, {read: false})
+		.pipe(clean());
+});
+
+
 
 /*watch*/
 gulp.task('watch', function(){
@@ -62,3 +91,14 @@ gulp.task('watch', function(){
 		.pipe(gulp.dest('./client/'))	
 	})*/
 });
+
+
+
+
+
+//comile bundlelib
+
+	gulp.task('bundlelib', ['uglify-lib','uglify-lib-css', 'fonts']);
+	gulp.task('bundle', ['compile'], function(){ return gulp.run('uglify'); });
+	gulp.task('generate', ['bundlelib', 'bundle']);
+
