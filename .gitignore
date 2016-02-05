@@ -19,7 +19,7 @@ node_modules
 bower_components
 typings
 npm-debug.log
-bower.json
+
 
 # ignore files javascript
 client/bundle.min.js
