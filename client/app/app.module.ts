@@ -1,6 +1,6 @@
 /// <reference path="../../typings/tsd.d.ts" />
-
-var uiRouterExtras = require('ui-router-extras');
+import angular = require('angular');
+import uiRouterExtras = require('ct-ui-router-extras');
 
 angular.module("CrowdfundingApp", [uiRouterExtras]);
 

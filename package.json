@@ -6,8 +6,11 @@
     "pretest": "jshint ."
   },
   "dependencies": {
+    "browserify": "^13.0.0",
+    "browserify-shim": "^3.8.12",
     "compression": "^1.0.3",
     "cors": "^2.5.2",
+    "gulp-util": "^3.0.7",
     "loopback": "^2.22.0",
     "loopback-boot": "^2.6.5",
     "loopback-component-explorer": "^2.1.0",
@@ -17,7 +20,9 @@
     "serve-favicon": "^2.0.1",
     "typescript": "^1.6.2",
     "ui-router": "^0.2.15",
-    "ui-router-extras": "^0.1.0"
+    "ui-router-extras": "^0.1.0",
+    "uniq": "^1.0.1",
+    "vinyl-source-stream": "^1.1.0"
   },
   "devDependencies": {
     "gulp": "^3.9.0",
@@ -32,5 +37,18 @@
     "type": "",
     "url": ""
   },
-  "description": "Crowdfunding"
+  "description": "Crowdfunding",
+  "browser": {
+    "jquery": "./bower_components/jquery/dist/jquery.min.js",
+    "angular": "./bower_components/angular/angular.min.js",
+    "angular-ui-router": "./bower_components/angular-ui-router/release/angular-ui-router.min.js",
+    "ct-ui-router-extras":"./bower_components/ui-router-extras/release/ct-ui-router-extras.min.js"
+  },
+  "browserify-shim": {
+    "jquery": "$",
+    "three": "global:THREE"
+  },
+  "browserify": {
+    "transform": [ "browserify-shim" ]
+  }
 }

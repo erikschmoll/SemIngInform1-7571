@@ -1,10 +1,12 @@
 
 var gulp = require("gulp"),
+	gutil = require("gulp-util"),
 	concat = require("gulp-concat"),
 	uglify = require("gulp-uglify"),
 	typescript = require("gulp-tsc"),
 	clean = require('gulp-clean'),
-	browserify = require('browserify');
+	browserify = require('browserify'),
+	source = require("vinyl-source-stream");
 
 
 var pathScriptslib = ['./bower_components/jquery/dist/jquery.min.js',
@@ -48,7 +50,7 @@ gulp.task('fonts', function(){
 
 gulp.task('uglify', function(){
 	gulp.src(pathScripts)
-	.pipe(concat('bundle.min.js'))
+	.pipe(concat('bundle.js'))
 	.pipe(uglify())
 	.pipe(gulp.dest('./client/js/'))
 });
@@ -92,9 +94,20 @@ gulp.task('watch', function(){
 	})*/
 });
 
+gulp.task('browserify', function(){
+	return gulp.src('client/app/app.module.ts')
+		.pipe(exec('browserify client/app/app.module.ts -o bundle.js'));
+});
 
-
-
+gulp.task('ts', function(){
+	browserify('./client/app/app.module.ts')
+	.bundle()
+	.on('error', function(e){
+		gutil.log(e);
+	})
+	.pipe(source('bundle1.js'))
+	.pipe(gulp.dest('./client/app/'))
+});
 
 //comile bundlelib
 
