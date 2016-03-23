@@ -19,7 +19,9 @@
     "angular": "^1.5.0",
     "bootstrap-material-design": "^0.5.8",
     "angular-ui-router": "^0.2.18",
-    "ui-router-extras": "^0.1.0"
+    "ui-router-extras": "^0.1.0",
+    "ui-select": "angular-ui-select#^0.16.0",
+    "angular-sanitize": "^1.5.2"
   },
   "devDependencies": {
     "ui-router-extras": "^0.1.0"

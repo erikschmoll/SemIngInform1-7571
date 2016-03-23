@@ -10,7 +10,9 @@ var gulp = require("gulp"),
 
 
 var pathScriptslib = ['./bower_components/jquery/dist/jquery.min.js',
-					  './bower_components/angular/angular.min.js',
+					  './bower_components/angular/angular.js',
+					  './bower_components/angular-sanitize/angular-sanitize.js',
+					  './bower_components/ui-select/dist/select.js',
 					  './bower_components/bootstrap/dist/js/bootstrap.min.js',
 					  './bower_components/bootstrap-material-design/dist/js/material.min.js'
 					 // './bower_components/Materialize/dist/js/materialize.min.js'
@@ -22,7 +24,8 @@ var pathScriptslib = ['./bower_components/jquery/dist/jquery.min.js',
 	],
 	pathStylelib =[
 	'./bower_components/bootstrap/dist/css/bootstrap.min.css',
-	'./bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.css'
+	'./bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.css',
+	'./bower_components/ui-select/dist/select.css'
 
 	//'./bower_components/Materialize/dist/css/materialize.min.css'
 	],
@@ -39,7 +42,7 @@ gulp.task('uglify-lib-css', function(){
 gulp.task('uglify-lib', function(){
 	gulp.src(pathScriptslib)
 	.pipe(concat('bundle.lib.min.js'))
-	.pipe(uglify())
+	//.pipe(uglify())
 	.pipe(gulp.dest('./client/js/'))
 });
 gulp.task('fonts', function(){
