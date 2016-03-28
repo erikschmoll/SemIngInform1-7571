@@ -13,6 +13,7 @@ var pathScriptslib = ['./bower_components/jquery/dist/jquery.min.js',
 					  './bower_components/angular/angular.js',
 					  './bower_components/angular-sanitize/angular-sanitize.js',
 					  './bower_components/ui-select/dist/select.js',
+					  './bower_components/angular-ui-router/release/angular-ui-router.js',
 					  './bower_components/bootstrap/dist/js/bootstrap.min.js',
 					  './bower_components/bootstrap-material-design/dist/js/material.min.js'
 					 // './bower_components/Materialize/dist/js/materialize.min.js'
@@ -29,7 +30,7 @@ var pathScriptslib = ['./bower_components/jquery/dist/jquery.min.js',
 
 	//'./bower_components/Materialize/dist/css/materialize.min.css'
 	],
-    pathScripts    = ['./dest/*.js'],
+    pathScripts    = ['./dest/*/*.js','./dest/app.routers.js','./dest/app.module.js'],
     pathtypeScript = ['./client/app/**/*.ts'];
 
 /*task*/
