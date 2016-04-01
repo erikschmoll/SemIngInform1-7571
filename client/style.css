@@ -1,0 +1,26 @@
+.blue{
+	background-color: #0040FF;
+}
+
+.orange{
+	background-color: #FFBF00;
+}
+
+.green{
+	background-color: #04B404;
+}
+
+.red{
+	background-color: #DF013A;
+}
+
+.screen{
+	width: 100%;
+}
+
+.custom-nav{
+	margin: 0;
+}
+.custom-search{
+	width: 4em;
+}

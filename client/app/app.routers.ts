@@ -1,22 +1,22 @@
 
 
 class Router{
-
-	constructor(){
-
-	}
-
-    public config(){
-		console.log('hola mundo');
-	}
-
-	private routerConfig($stateProvider, $urlRouterProvider){
-		$urlRouterProvider.otherwise("/root");
+	constructor($stateProvider, $urlRouterProvider) {
+		$urlRouterProvider.otherwise("/home");
 		$stateProvider
-			.state('root', {
+			.state('home', {
 				url: "/",
-				templateUrl: "partials/state1.html"
+				templateUrl: "views/home.html"
 			});
 	}
+/*
+	public routerConfig($stateProvider, $urlRouterProvider) {
+		$urlRouterProvider.otherwise("/home");
+		$stateProvider
+			.state('home', {
+				url: "/",
+				templateUrl: "views/home.html"
+			});
+	}*/
 
 }
