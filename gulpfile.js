@@ -6,7 +6,8 @@ var gulp = require("gulp"),
 	typescript = require("gulp-tsc"),
 	clean = require('gulp-clean'),
 	browserify = require('browserify'),
-	source = require("vinyl-source-stream");
+	source = require("vinyl-source-stream"),
+	strip = require('gulp-strip-comments');
 
 
 var pathScriptslib = ['./bower_components/jquery/dist/jquery.min.js',
@@ -14,6 +15,10 @@ var pathScriptslib = ['./bower_components/jquery/dist/jquery.min.js',
 					  './bower_components/angular-sanitize/angular-sanitize.js',
 					  './bower_components/ui-select/dist/select.js',
 					  './bower_components/angular-ui-router/release/angular-ui-router.js',
+					  './bower_components/angular-translate/angular-translate.js',
+					  './bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js',
+					  './bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js',
+					  './bower_components/angular-translate-storage-local/angular-translate-storage-local.js',
 					  './bower_components/bootstrap/dist/js/bootstrap.min.js',
 					  './bower_components/bootstrap-material-design/dist/js/material.min.js'
 					 // './bower_components/Materialize/dist/js/materialize.min.js'
@@ -30,7 +35,7 @@ var pathScriptslib = ['./bower_components/jquery/dist/jquery.min.js',
 
 	//'./bower_components/Materialize/dist/css/materialize.min.css'
 	],
-    pathScripts    = ['./dest/*/*.js','./dest/app.routers.js','./dest/app.module.js'],
+    pathScripts    = ['./dest/*/*.js','./dest/app.routers.js','./dest/app.config.js','./dest/app.module.js'],
     pathtypeScript = ['./client/app/**/*.ts'];
 
 /*task*/
@@ -55,7 +60,8 @@ gulp.task('fonts', function(){
 gulp.task('uglify', function(){
 	gulp.src(pathScripts)
 	.pipe(concat('bundle.js'))
-	.pipe(uglify())
+	//.pipe(uglify())
+	.pipe(strip())
 	.pipe(gulp.dest('./client/js/'))
 });
 

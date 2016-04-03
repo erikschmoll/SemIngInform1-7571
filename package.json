@@ -10,6 +10,7 @@
     "browserify-shim": "^3.8.12",
     "compression": "^1.0.3",
     "cors": "^2.5.2",
+    "gulp-strip-comments": "^2.4.2",
     "gulp-util": "^3.0.7",
     "loopback": "^2.22.0",
     "loopback-boot": "^2.6.5",
@@ -42,13 +43,15 @@
     "jquery": "./bower_components/jquery/dist/jquery.min.js",
     "angular": "./bower_components/angular/angular.min.js",
     "angular-ui-router": "./bower_components/angular-ui-router/release/angular-ui-router.min.js",
-    "ct-ui-router-extras":"./bower_components/ui-router-extras/release/ct-ui-router-extras.min.js"
+    "ct-ui-router-extras": "./bower_components/ui-router-extras/release/ct-ui-router-extras.min.js"
   },
   "browserify-shim": {
     "jquery": "$",
     "three": "global:THREE"
   },
   "browserify": {
-    "transform": [ "browserify-shim" ]
+    "transform": [
+      "browserify-shim"
+    ]
   }
 }

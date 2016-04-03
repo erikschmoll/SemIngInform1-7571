@@ -1,0 +1,14 @@
+{
+	"LANGUAGE": "i18n",
+	"APPLICATION": "Application",
+	"APPLICATIONS": "Applications",
+	"CALENDAR": "Calendar",
+	"NEW": "New",
+	"MY_APPLICATIONS": "My Applications",
+	"MY_ACCOUNT" : "My Account",
+	"SEARCH": "Search",
+	"ENGLISH": "English",
+	"SPANISH": "Spanish",
+	"CONFIG": "Config.",
+	"QUIT": "Quit"
+}

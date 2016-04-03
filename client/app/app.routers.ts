@@ -1,12 +1,19 @@
 
 
 class Router{
-	constructor($stateProvider, $urlRouterProvider) {
-		$urlRouterProvider.otherwise("/home");
+	constructor($stateProvider, $urlRouterProvider, $locationProvider) {
+		$urlRouterProvider.otherwise("/");
+		$locationProvider.html5Mode(true);
 		$stateProvider
+			// HOME STATES AND NESTED VIEWS ========================================
 			.state('home', {
-				url: "/",
-				templateUrl: "views/home.html"
+				url: '/',
+				templateUrl: "app/views/home.html"
+			})
+
+			// ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
+			.state('about', {
+				// we'll get to this in a bit       
 			});
 	}
 /*

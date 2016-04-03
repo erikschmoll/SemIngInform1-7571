@@ -1,7 +1,7 @@
     <nav class="navbar navbar-inverse custom-nav">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" ui-sref="home">
+      <button type="button" ui-sref="home" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" >
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -13,13 +13,13 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Solicitudes <span class="sr-only">(current)</span></a></li>
+        <li class="active"><a ui-sref="home">{{'APPLICATIONS' | translate }} <span class="sr-only">(current)</span></a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Solicitud <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{'APPLICATION' | translate }} <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Calendario</a></li>
-            <li><a href="#">Nueva Solicitud</a></li>
-            <li><a href="#">Mis Solicitudes</a></li>
+            <li><a href="#">{{'CALENDAR' | translate }}</a></li>
+            <li><a href="#">{{'NEW' | translate }} {{'APPLICATION' | translate }}</a></li>
+            <li><a href="#">{{'MY_APPLICATIONS' | translate }}</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#">Separated link</a></li>
             <li role="separator" class="divider"></li>
@@ -31,23 +31,23 @@
       <li>
           <form class="navbar-form navbar-left" role="search">
             <div class="form-group">
-              <input type="text" class="form-control" style="width: 8em;" placeholder="Buscar">
+              <input type="text" class="form-control" style="width: 8em;" placeholder="{{'SEARCH' | translate }}">
             </div>
           </form>
         </li>
-        <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Idioma <span class="caret"></span></a>
+        <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{'LANGUAGE' | translate }} <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Español</a></li>
-            <li><a href="#">Ingles</a></li>
+            <li><a href="#" ng-click="index.changeI18nToEn()" >{{'ENGLISH' | translate }}</a></li>
+            <li><a href="#" ng-click="index.changeI18nToEs()">{{'SPANISH' | translate }}</a></li>
           </ul>
         </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">eschmoll <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Mi Cuenta</a></li>
-            <li><a href="#">Configuración</a></li>
+            <li><a href="#">{{'MY_ACCOUNT' | translate }}</a></li>
+            <li><a href="#">{{'CONFIG' | translate }}</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Salir</a></li>
+            <li><a href="#">{{'QUIT' | translate }}</a></li>
           </ul>
         </li>
       </ul>
